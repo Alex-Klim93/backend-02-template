@@ -10,6 +10,8 @@ const port = 3003;
 const server = http.createServer((request, response) => {
   const url = new URL(request.url, `http://${hostname}:${port}`);
   const params = url.searchParams;
+  console.log(url);
+  console.log(url.searchParams);
 
   if (params.has("hello")) {
     const name = params.get("hello");
@@ -47,6 +49,4 @@ const server = http.createServer((request, response) => {
 
 server.listen(port, hostname, () => {
   console.log(`Сервер запущен по адресу http://${hostname}:${port}/`);
-  console.log(url);
-  console.log(url.searchParams);
 });
